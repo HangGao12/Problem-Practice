@@ -1,0 +1,25 @@
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        list1 = []
+        
+        a1 = len(word1)
+        a2 = len(word2)
+        if a1 <= a2:
+            for x in range(a2):
+                if a1 > x:
+                    list1.append(word1[x])
+                list1.append(word2[x])
+        else:
+            for x in range(a1):
+                if a2 > x:
+                    list1.append(word1[x])
+                    list1.append(word2[x])
+                else:
+                    list1.append(word1[x])
+        return ''.join(list1) 
+        
