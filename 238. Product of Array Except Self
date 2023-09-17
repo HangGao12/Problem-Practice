@@ -1,0 +1,26 @@
+class Solution(object):
+    def productExceptSelf(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        num_0 = nums.count(0)
+        if num_0 >= 2:
+            return [0]*len(nums)
+        elif num_0 == 1:
+            index_0 = nums.index(0)
+            product_all = 1
+            for x in nums:
+                if x != 0:
+                    product_all = product_all * x
+            answer_list = [0]*len(nums)
+            answer_list[index_0] = product_all
+            return answer_list
+        else:
+            product_all = 1
+            for x in nums:
+                product_all = product_all * x
+            final_list = []
+            for x in nums:
+                    final_list.append(product_all // x)
+            return final_list
