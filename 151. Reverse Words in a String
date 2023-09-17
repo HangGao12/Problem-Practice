@@ -1,0 +1,21 @@
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        final_str = ""
+        list_s = list(s)
+        temp_word = []
+        list_s.reverse()
+        list_s.append(' ')
+        for x in list_s:
+
+            if x != ' ':
+                temp_word.append(x)
+            else:
+                if temp_word:
+                    temp_word.reverse()
+                    final_str = final_str + ''.join(temp_word) + " "
+                    temp_word = []
+        return final_str.rstrip(' ')
