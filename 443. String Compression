@@ -1,0 +1,32 @@
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        s = ""
+        count = 0
+        letter = chars[0]
+        if len(chars) == 1:
+            return 1
+        for x in range(0, len(chars)):
+            if chars[x] == letter:
+                count += 1
+                if x == len(chars) - 1:
+                    if count == 1:
+                        s = s + letter
+                    else:
+                        s = s + letter + str(count)
+            else:
+                if count == 1:
+                    s = s + letter
+                else:
+                    s = s + letter + str(count)
+                letter = chars[x]
+                count = 1
+                if x == len(chars) - 1:
+                    if count == 1:
+                        s = s + letter
+                    else:
+                        s = s + letter + str(count)
+        chars.clear()
+        for y in s:
+            chars.append(y)
+        print(chars)
+        return len(chars)
