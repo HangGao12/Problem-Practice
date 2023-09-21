@@ -1,0 +1,16 @@
+class Solution(object):
+    def isSubsequence(self, s, t):
+        if len(s) > len(t):
+            return False
+        index = -1
+        s_len = 0
+        for x in s:
+            for y in range(index+1, len(t)):
+                if x == t[y]:
+                    print(y)
+                    index = y
+                    s_len = s_len + 1
+                    break
+        if s_len == len(s):
+            return True
+        return False
