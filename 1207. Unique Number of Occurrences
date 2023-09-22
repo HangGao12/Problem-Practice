@@ -1,0 +1,14 @@
+class Solution(object):
+    def uniqueOccurrences(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: bool
+        """
+        dic_arr = {element: arr.count(element) for element in set(arr)}
+        list_values = dic_arr.values()
+        set_arr = set(list_values)
+        if len(list_values) == len(set_arr):
+            return True
+        else:
+            return False
+        
