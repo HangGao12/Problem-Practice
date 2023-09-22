@@ -1,0 +1,16 @@
+class Solution(object):
+    def equalPairs(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        column_list = []
+        temp = []
+        count = 0
+        length = len(grid)
+        for x in range(length):
+            for y in range(length):
+                temp.append(grid[y][x])
+            count += grid.count(temp)
+            temp = []
+        return count
