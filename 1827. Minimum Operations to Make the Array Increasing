@@ -1,0 +1,13 @@
+    def minOperations(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        smallest = nums[0]
+        count = 0
+        for x in nums[1:]:
+            if x <= smallest:
+                count = count + smallest + 1 - x
+                smallest = smallest + 1
+            else:
+                smalle
