@@ -1,0 +1,19 @@
+    def maximumUnits(self, boxTypes, truckSize):
+        """
+        :type boxTypes: List[List[int]]
+        :type truckSize: int
+        :rtype: int
+        """
+        total = 0
+        boxTypes.sort(key=lambda x: (-x[1]))
+        for x in boxTypes:
+            if truckSize > 0:
+                if truckSize > x[0]:
+                    total = total + x[0] * x[1]
+                    truckSize = truckSize - x[0]
+                else:
+                    total = total + truckSize * x[1]
+                    truckSize = 0
+            else:
+                break
+        return total
