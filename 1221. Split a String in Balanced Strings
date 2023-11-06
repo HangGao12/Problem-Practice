@@ -1,0 +1,17 @@
+    def balancedStringSplit(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        count_R = 0
+        count_L = 0
+        count = 0
+        for x in s:
+            if x == 'R':
+                count_R = count_R + 1
+            if x == 'L':
+                count_L = count_L + 1
+            if count_R == count_L:
+                count = count + 1
+                
+        return count
