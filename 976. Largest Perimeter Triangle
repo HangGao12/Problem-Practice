@@ -1,0 +1,7 @@
+    def largestPerimeter(self, nums):
+        nums.sort(reverse = True)
+        length = len(nums)
+        for x in range(0, length-2):
+            if nums[x] < nums[x+1] + nums[x+2]:
+                return nums[x] + nums[x+1] + nums[x+2]
+        return 0
