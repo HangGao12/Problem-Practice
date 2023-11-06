@@ -1,0 +1,13 @@
+    def diStringMatch(self, s):
+        start = 0
+        end = len(s)
+        final = []
+        for x in s:
+            if x == 'I':
+                final.append(start)
+                start = start + 1
+            if x == 'D':
+                final.append(end)
+                end = end - 1
+        final.append(start)
+        return final
