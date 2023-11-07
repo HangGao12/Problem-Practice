@@ -1,0 +1,38 @@
+ def mergeTwoLists(self, list1, list2):
+        """
+        :type list1: Optional[ListNode]
+        :type list2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        start = ListNode(0)
+        answer = start
+        start_1 = list1
+        start_2 = list2
+        while start_1 is not None and start_2 is not None:
+            #if start_1 is None:
+                #start = start_2
+                #temp = ListNode(start_2.val)
+                #start.next = temp
+                #start = start.next
+                #start_2 = start_2.next
+            #if start_2 is None:
+                #start = start_1
+                #temp = ListNode(start_1.val)
+                #start.next = temp
+                #start = start.next
+                #start_1 = start_1.next
+            if start_1.val < start_2.val:
+                temp = ListNode(start_1.val)
+                start.next = temp
+                start = start.next
+                start_1 = start_1.next
+            else:
+                temp = ListNode(start_2.val)
+                start.next = temp
+                start = start.next
+                start_2 = start_2.next
+        if start_1 is None:
+            start.next = start_2
+        else:
+            start.next = start_1
+        return answer.next
