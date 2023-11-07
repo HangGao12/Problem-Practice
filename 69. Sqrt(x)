@@ -1,0 +1,19 @@
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x < 2:
+            return x
+        start = 2
+        end = x // 2
+        while start <= end:
+            mid = (start + end) // 2
+            temp = mid * mid
+            if temp < x:
+                start = mid + 1
+            elif temp > x:
+                end = mid - 1
+            else:
+                return mid
+        return end
