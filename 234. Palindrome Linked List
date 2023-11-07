@@ -1,0 +1,21 @@
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if head is None:
+            return True
+        start = head.next
+        reverse = ListNode(head.val)
+        while start is not None:
+            temp = ListNode(start.val)
+            temp.next = reverse
+            reverse = temp
+            start = start.next
+        while head is not None:
+            if head.val != reverse.val:
+                return False
+            head = head.next
+            reverse = reverse.next
+        return True
+        
