@@ -1,0 +1,33 @@
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        row_start = 0
+        row_end = len(matrix) - 1
+        col_end = len(matrix[0]) - 1
+        if target < matrix[0][0] or target > matrix[row_end][col_end]:
+            return False
+        while row_start <= row_end:
+            mid = (row_start + row_end) // 2
+            if matrix[mid][0] == target:
+                return True
+            if matrix[mid][col_end] >= target > matrix[mid][0]:
+                break
+            elif matrix[mid][0] > target:
+                row_end = mid - 1
+            else:
+                row_start = mid + 1
+    #print(mid)
+        col_start = 0
+
+        while col_start <= col_end:
+            ans = (col_start + col_end) // 2
+            if matrix[mid][ans] == target:
+                return True
+            if matrix[mid][ans] > target:
+                col_end = ans - 1
+            else:
+                col_start = ans + 1
+        return False
