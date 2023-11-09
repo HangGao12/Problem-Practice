@@ -1,0 +1,16 @@
+def climbStairs(n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+    x = 1
+    y = 2
+    for xx in range(3, n+1):
+        total = x + y
+        x = y
+        y = total
+    return total
