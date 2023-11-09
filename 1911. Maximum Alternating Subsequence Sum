@@ -1,0 +1,17 @@
+    def maxAlternatingSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+
+        even_sum = 0
+        odd_sum = 0
+        for x in nums:
+            new_odd_sum = max(odd_sum, even_sum - x)
+            new_even_sum = max(even_sum, odd_sum + x)
+
+            even_sum = new_even_sum
+            odd_sum = new_odd_sum
+        return max(even_sum, odd_sum)
