@@ -1,0 +1,32 @@
+ def videoStitching(self, clips, time):
+        """
+        :type clips: List[List[int]]
+        :type time: int
+        :rtype: int
+        """
+        clips.sort(key = lambda x:(x[0], x[1]))
+        start = 0
+        end = 0
+        count = 1
+        for ele in clips:
+            if start >= ele[0]:
+                if ele[1] >= end:
+                    if ele[1] > time:
+                        return count
+                    else:
+                        end = ele[1]
+                
+            else:
+                start = end
+                count += 1
+                if start >= ele[0]:
+                    if ele[1] >= end:
+                        if ele[1] > time:
+                            return count
+                        else:
+                            end = ele[1]
+            if end == time:
+                return count 
+            
+            
+        return -1
