@@ -1,0 +1,7 @@
+        dp = [float('inf')] * (amount + 1)
+        dp[0] = 0
+        for x in coins:
+            for y in range(x, amount + 1):
+                dp[y] = min(dp[y], dp[y-x] + 1)
+
+        return dp[amount] if dp[amount] != float('inf') else -1
