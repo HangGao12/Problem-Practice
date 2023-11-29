@@ -1,0 +1,22 @@
+    def minPathSum(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        len1 = len(grid)
+        len2 = len(grid[0])
+        dp = []
+        for x in range(len1):
+            dp.append([float('inf')] * len2)
+        dp[0][0] = grid[0][0]
+        for x in range(len1):
+            for y in range(len2):
+                if x == 0 and y == 0:
+                    continue
+                if x == 0:
+                    dp[x][y] = dp[x][y - 1] + grid[x][y]
+                if y == 0:
+                    dp[x][y] = dp[x - 1][y] + grid[x][y]
+                else:
+                    dp[x][y] = min(dp[x - 1][y], dp[x][y - 1]) + grid[x][y]
+        return dp[len1 - 1][len2 - 1]
